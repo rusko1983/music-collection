@@ -20,3 +20,14 @@ li{
     border: 2px solid black;
 
 }
+.album-clas-image{
+  width: 100%;
+  object-fit: cover;
+}
+.list__tracks{
+  width: 100%;
+ 
+}
+.main__image__container{
+  width:100%
+}

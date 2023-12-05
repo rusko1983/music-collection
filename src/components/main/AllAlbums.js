@@ -5,27 +5,14 @@ export default function AllAlbums({ cards }) {
     <div>
       <ul>
         {cards.map((card) => (
-          <AlbumCard key={card.id} artist={card.artist} title={card.title}  image={card.image} tracks={card.tracks} />
-        )
-        
-        
-        
-        
-        
-        )
-    
-    
-    
-    
-    
-    }
-
-
-
-
-
-
-
+          <AlbumCard
+            key={card.id}
+            artist={card.artist}
+            title={card.title}
+            image={card.image}
+            tracks={card.tracks}
+          />
+        ))}
       </ul>
     </div>
   );
