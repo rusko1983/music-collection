@@ -1,10 +1,14 @@
-export default function SongList({track}) {
-    return  <li key={track.id} >
+export default function SongList({ tracks }) {
+  return (
     <div>
-      <span>{track.track_number}</span>
-      <span>{track.name}</span>
-      <span>{track.duration}</span>
-
+      {tracks.map((track) => (
+        <div key={track.id}>
+          <span>
+            {track.track_number} {track.name}
+          </span>
+          <span>{track.duration}</span>
+        </div>
+      ))}
     </div>
-  </li>    
+  );
 }

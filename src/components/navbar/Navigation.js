@@ -1,7 +1,11 @@
 
-
+import "./NavBar.css"
 
 
 export default function  Navigation() {
-    return <h1 className="main-header">MUSIC</h1>
+    return <div className="main-div-header">
+    <h1 className="main-header">MUSIC APP</h1>
+
+
+    </div>
 }
