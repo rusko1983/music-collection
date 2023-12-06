@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
+//import {  useState } from "react";
 import "./AlbumList.css"
 
-export default function AlbumList() {
-  const [albumList, setAlbumList] = useState([]);
-  useEffect(function () {
-    fetch("https://neuefische-spotify-proxy.vercel.app/api/featured")
-      .then((res) => res.json())
-      .then((data) => setAlbumList(data));
-  }, []);
-
+export default function AlbumList({albumList,setAlbumList}) {
+ 
   return<div className="main__list">
   
   <ul className="album-lists">

@@ -1,14 +1,14 @@
 export default function SongList({ tracks }) {
   return (
-    <div>
+    <ul>
       {tracks.map((track) => (
-        <div key={track.id}>
+        <li key={track.id}>
           <span>
             {track.track_number} {track.name}
           </span>
           <span>{track.duration}</span>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

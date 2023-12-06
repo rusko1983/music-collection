@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./AlbumCard.css";
 import SongList from "./SongList";
 
-export default function Cards({  title,image,artist,tracks }) {
+export default function AlbumCard({  title,image,artist,tracks }) {
   const [listTracks, setListTracks] = useState(false);
   function handleListTracks() {
      
