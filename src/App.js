@@ -1,25 +1,52 @@
-import NavBar from "./components/navbar/NavBar.js"
-import AllAlbums  from "./components/main/AllAlbums.js"
-//import Cards from "./components/main/AlbumCard.js";
+import NavBar from "./components/navbar/NavBar.js";
+
 import AlbumList from "./components/api/AlbumList.js";
-import "./App.css"
-import  Db  from "./db.js"
-import {  useEffect,useState } from "react";
+import "./App.css";
+
+import { useEffect, useState } from "react";
+import SearchBar from "./components/navbar/SearchBar.js";
 function App() {
-  //const [cards,setCards] = useState(Db)
   const [albumList, setAlbumList] = useState([]);
-  useEffect(function () {
-    fetch("https://neuefische-spotify-proxy.vercel.app/api/featured")
-      .then((res) => res.json())
-      .then((data) => setAlbumList(data));
-  }, []);
+  const [query, setQuery] = useState("");
+  const [isLoding, setIsLoding] = useState(false);
+  const [error, setError] = useState("");
+  useEffect(
+    function () {
+      async function fetchMusic() {
+        try {
+          setIsLoding(true);
+          const res = await fetch(
+            `https://neuefische-spotify-proxy.vercel.app/api/search?artist=${query}}`
+          );
+          if (!res.ok) throw new Error("Something went wrong");
+
+          const data = await res.json();
+          setAlbumList(data);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setIsLoding(false);
+        }
+      }
+      fetchMusic();
+    },
+    [query]
+  );
+  function handleSearch(query) {
+    setQuery(query)
+      
+  }
+
+
+
+
   return (
     <div className="app">
       <div className="app-1">
-      <NavBar />
-     <AlbumList  albumList={albumList} setAlbumList={setAlbumList}        />
-      <AllAlbums cards={Db}  />
-       </div>
+        <NavBar />
+        <SearchBar query={query} setQuery={setQuery} onSubmit={handleSearch}   />
+        {isLoding ? "LODING..." : <AlbumList albumList={albumList} />}
+      </div>
     </div>
   );
 }
