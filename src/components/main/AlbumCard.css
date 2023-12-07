@@ -1,0 +1,33 @@
+.cards {
+  width: 100%;
+ 
+  align-items: center;
+  justify-content: space-between;
+}
+article {
+  width: 100%;
+  height: 100vh;
+}
+
+ul {
+  list-style: none;
+}
+.title-artist {
+  display: flex;
+  justify-content: space-evenly;
+}
+li{
+    border: 2px solid black;
+
+}
+.album-clas-image{
+  width: 100%;
+  object-fit: cover;
+}
+.list__tracks{
+  width: 100%;
+ 
+}
+.main__image__container{
+  width:100%
+}
